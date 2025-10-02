@@ -1,22 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <base target="_top">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GPS2Quantum™ Workbench — Subscribe</title>
-
-  <script>
-  (function () {
-    const href = String(location.href || "");
-    const ref  = String(document.referrer || "");
-    const inBuilderPreview =
-      href.startsWith("about:srcdoc") || /godaddy|myftpupload|gdiframe|pagebuilder/i.test(ref);
-    if (!inBuilderPreview && window.top !== window.self) {
-      try { window.top.location.replace(window.location.href); } catch (_) {}
-    }
-  })();
-  </script>
 
   <style>
     :root{ --bg:#0f1419; --panel:#121a22; --ink:#e8f0f7; --muted:#9fb2c7; --brand:#ff4d3d; --brand2:#2aa6ff; --ok:#17c964; --border:#1f2a35; }
@@ -30,18 +17,19 @@
     .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
     .cta a{background:var(--brand2);color:#07131b;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
     .cta a.secondary{background:#1b2834;color:var(--ink);border:1px solid var(--border)}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:800px;margin:0 auto}
     @media (max-width:980px){.grid{grid-template-columns:1fr}}
-    .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:18px}
-    .plan{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-    .name{font-weight:700}.price{font-weight:800}.muted{color:var(--muted)}
-    .features{margin:12px 0 18px;padding-left:18px}.features li{margin:6px 0}
-    .btn{display:inline-block;background:var(--brand);color:#120b0b;text-decoration:none;padding:10px 14px;border-radius:10px;font-weight:800;cursor:pointer;border:none;width:100%;text-align:center;transition:all 0.2s ease;position:relative}
-    .btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+    .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:20px}
+    .plan{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+    .name{font-weight:700;font-size:18px}.price{font-weight:800;font-size:24px}.muted{color:var(--muted)}
+    .features{margin:14px 0 18px;padding-left:18px;font-size:14px}.features li{margin:6px 0}
+    .btn{display:inline-block;background:var(--brand);color:#120b0b;text-decoration:none;padding:12px 16px;border-radius:10px;font-weight:800;cursor:pointer;border:none;width:100%;text-align:center;transition:all 0.2s ease;position:relative;font-size:15px}
+    .btn:hover:not(:disabled){filter:brightness(1.1);transform:translateY(-1px)}
     .btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
-    .btn.ghost{background:#0e171f;border:1px solid var(--border);color:var(--ink)}
     .foot{margin-top:28px;font-size:14px;color:var(--muted);text-align:center}
-    .kicker{font-size:12px;color:var(--muted);margin-top:8px}
+    .kicker{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.4}
+    .trial-badge{background:var(--ok);color:#000;font-size:11px;font-weight:800;padding:4px 8px;border-radius:6px;display:inline-block;margin-bottom:8px}
+    .academic-note{background:#1a2530;border:1px solid var(--border);border-radius:8px;padding:12px;margin-top:8px;font-size:12px;line-height:1.5}
     
     .loading {
       display: inline-block;
@@ -100,10 +88,10 @@
     <header>
       <div class="logo" aria-label="GPS2Quantum"><span>GPS<span class="dot">2</span>Quantum™</span></div>
       <nav class="nav">
-        <a href="/">Home</a>
-        <a href="/#platform">Platform</a>
-        <a href="https://greggillan9.github.io/gps2quantum-login/" class="login" rel="noopener">Login</a>
-        <a href="https://billing.stripe.com/p/login/4gMcN6cYue972Pb3p92wU00" rel="noopener">Billing Portal</a>
+        <a href="https://gps2quantum.com">Home</a>
+        <a href="https://gps2quantum.com/#platform">Platform</a>
+        <a href="https://greggillan9.github.io/gps2quantum-login/" class="login">Login</a>
+        <a href="https://billing.stripe.com/p/login/4gMcN6cYue972Pb3p92wU00">Billing Portal</a>
       </nav>
     </header>
 
@@ -111,22 +99,23 @@
       <h1>Subscribe to GPS2Quantum™ Workbench</h1>
       <p class="sub">Professional coordinate conversion & quantum drift simulation for engineers, researchers, analysts and academics.</p>
       <div class="cta">
-        <a href="https://greggillan9.github.io/gps2quantum-login/" rel="noopener">Login to Workbench</a>
-        <a href="https://billing.stripe.com/p/login/4gMcN6cYue972Pb3p92wU00" class="secondary" rel="noopener">Manage billing</a>
+        <a href="https://greggillan9.github.io/gps2quantum-login/">Login to Workbench</a>
+        <a href="https://billing.stripe.com/p/login/4gMcN6cYue972Pb3p92wU00" class="secondary">Manage billing</a>
       </div>
-      <p class="kicker">Already purchased? Use <b>Login</b>. Need to update payment or cancel? Use <b>Manage billing</b>.</p>
+      <p class="kicker">All plans include a risk-free trial. Card required. Cancel anytime during trial, no charge.</p>
     </section>
 
     <!-- Monthly -->
-    <h2 style="margin:10px 4px">Monthly plans</h2>
+    <h2 style="margin:10px 4px;text-align:center">Monthly plans</h2>
     <section class="grid" aria-label="Monthly pricing">
       <div class="card">
+        <div class="trial-badge">14-DAY FREE TRIAL</div>
         <div class="plan">
           <div>
             <div class="name">Pro Monthly</div>
             <div class="muted">1 seat • full Workbench</div>
           </div>
-          <div class="price">$49<span class="muted">/mo</span></div>
+          <div class="price">$49<span class="muted" style="font-size:16px">/mo</span></div>
         </div>
         <ul class="features">
           <li>All coordinate formats (DD,DDM,DMS,UTM,MGRS,SPCS,ECEF,ENU)</li>
@@ -135,17 +124,18 @@
           <li>GreenScreen + PunchCard presentations</li>
         </ul>
         <button class="btn" data-price="price_1RvlrPJp0xGVpVuS4yw75oQc" data-qty="1">
-          Subscribe monthly
+          Start 14-day free trial
         </button>
       </div>
 
       <div class="card">
+        <div class="trial-badge">14-DAY FREE TRIAL</div>
         <div class="plan">
           <div>
             <div class="name">Academic/Student Monthly</div>
             <div class="muted">1 seat • full Workbench</div>
           </div>
-          <div class="price">$19<span class="muted">/mo</span></div>
+          <div class="price">$19<span class="muted" style="font-size:16px">/mo</span></div>
         </div>
         <ul class="features">
           <li>All coordinate formats (DD,DDM,DMS,UTM,MGRS,SPCS,ECEF,ENU)</li>
@@ -154,79 +144,58 @@
           <li>GreenScreen + PunchCard presentations</li>
         </ul>
         <button class="btn" data-price="price_1Rvm1XJp0xGVpVuSCJLFYnA5" data-qty="1">
-          Subscribe monthly
+          Start 14-day free trial
         </button>
-      </div>
-
-      <div class="card">
-        <div class="plan">
-          <div>
-            <div class="name">Enterprise Monthly</div>
-            <div class="muted">5 seats* • full Workbench</div>
-          </div>
-          <div class="price">$99<span class="muted">/mo</span></div>
+        <div class="academic-note">
+          <strong>Academic verification:</strong> If using a non-educational email, you'll need to verify your student/academic status by emailing support@gps2quantum.com during your trial period.
         </div>
-        <ul class="features">
-          <li>All coordinate formats (DD,DDM,DMS,UTM,MGRS,SPCS,ECEF,ENU)</li>
-          <li>Quantum drift modeling (Δt, Δs, Δr)</li>
-          <li>Map with GPS and Quantum detail</li>
-          <li>GreenScreen + PunchCard presentations</li>
-        </ul>
-        <button class="btn" data-price="price_1Rvlz3Jp0xGVpVuSESG2QQhF" data-qty="5">
-          Subscribe monthly
-        </button>
-        <div class="kicker">*contact us for optional license terms.</div>
       </div>
     </section>
 
     <!-- Annual -->
-    <h2 style="margin:24px 4px 10px">Annual plans</h2>
+    <h2 style="margin:24px 4px 10px;text-align:center">Annual plans</h2>
     <section class="grid" aria-label="Annual pricing">
       <div class="card">
+        <div class="trial-badge">30-DAY FREE TRIAL</div>
         <div class="plan">
           <div>
             <div class="name">Pro Annual</div>
             <div class="muted">1 seat • full Workbench</div>
           </div>
-          <div class="price">$294<span class="muted">/yr</span></div>
+          <div class="price">$294<span class="muted" style="font-size:16px">/yr</span></div>
         </div>
-        <ul class="features"><li>All features, billed yearly</li><li>Save $294 vs monthly</li></ul>
+        <ul class="features">
+          <li>All features, billed yearly</li>
+          <li>Save $294 vs monthly (50% off)</li>
+        </ul>
         <button class="btn" data-price="price_1S3fPjJp0xGVpVuSLjifRqMH" data-qty="1">
-          Subscribe annually
+          Start 30-day free trial
         </button>
       </div>
 
       <div class="card">
+        <div class="trial-badge">30-DAY FREE TRIAL</div>
         <div class="plan">
           <div>
             <div class="name">Academic/Student Annual</div>
             <div class="muted">1 seat • full Workbench</div>
           </div>
-          <div class="price">$114<span class="muted">/yr</span></div>
+          <div class="price">$114<span class="muted" style="font-size:16px">/yr</span></div>
         </div>
-        <ul class="features"><li>All features, billed yearly</li><li>Save $114 vs monthly</li></ul>
+        <ul class="features">
+          <li>All features, billed yearly</li>
+          <li>Save $114 vs monthly (50% off)</li>
+        </ul>
         <button class="btn" data-price="price_1S3fJYJp0xGVpVuSE6q5zndK" data-qty="1">
-          Subscribe annually
+          Start 30-day free trial
         </button>
-      </div>
-
-      <div class="card">
-        <div class="plan">
-          <div>
-            <div class="name">Enterprise Annual</div>
-            <div class="muted">5 seats* • full Workbench</div>
-          </div>
-          <div class="price">$594<span class="muted">/yr</span></div>
+        <div class="academic-note">
+          <strong>Academic verification:</strong> If using a non-educational email, you'll need to verify your student/academic status by emailing support@gps2quantum.com during your trial period.
         </div>
-        <ul class="features"><li>All features, billed yearly</li><li>Save $594 vs monthly</li></ul>
-        <button class="btn" data-price="price_1S3fN8Jp0xGVpVuSKeAsFpjt" data-qty="5">
-          Subscribe annually
-        </button>
-        <div class="kicker">*contact us for optional license terms.</div>
       </div>
     </section>
 
-    <p class="foot">Questions? <a href="/#contact" style="color:var(--brand2)">Contact us</a> • <a href="/privacy" style="color:var(--brand2)">Privacy</a> • <a href="/terms" style="color:var(--brand2)">Terms</a></p>
+    <p class="foot">Questions? <a href="mailto:support@gps2quantum.com" style="color:var(--brand2)">Contact us</a> • <a href="https://gps2quantum.com/privacy" style="color:var(--brand2)">Privacy</a> • <a href="https://gps2quantum.com/terms" style="color:var(--brand2)">Terms</a></p>
   </div>
 
   <script>
@@ -234,7 +203,6 @@
     const BACKEND_BASE = "https://gps2quantum-backend-506830622318.us-central1.run.app";
     const LOGIN_PAGE   = "https://greggillan9.github.io/gps2quantum-login/";
 
-    // Status messaging system
     function showStatus(message, type = 'info') {
       const statusMsg = document.getElementById('statusMsg');
       statusMsg.textContent = message;
@@ -245,7 +213,6 @@
       }, type === 'error' ? 5000 : 3000);
     }
 
-    // Token management with better error handling
     function getIdToken() {
       try {
         return sessionStorage.getItem("gps2q_idtoken") || localStorage.getItem("gps2q_idtoken") || "";
@@ -272,7 +239,6 @@
         return;
       }
 
-      // Find the button that triggered this
       const button = document.querySelector(`[data-price="${priceId}"]`);
       if (!button) {
         showStatus("Button not found", "error");
@@ -303,7 +269,6 @@
           })
         });
 
-        // Handle authentication required
         if (response.status === 401) {
           showStatus("Please log in to continue", "error");
           setTimeout(() => {
@@ -320,8 +285,15 @@
         }
 
         if (response.ok && data.url) {
-          showStatus("Redirecting to checkout...", "success");
-          window.location.href = data.url;
+          if (data.requires_verification) {
+            showStatus("Academic verification required - check email after signup", "success");
+            setTimeout(() => {
+              window.location.href = data.url;
+            }, 2000);
+          } else {
+            showStatus("Redirecting to checkout...", "success");
+            window.location.href = data.url;
+          }
         } else {
           const errorMsg = data.error || 
                           (response.status === 403 ? "Access denied" : 
@@ -349,10 +321,8 @@
       }
     }
 
-    // Make function available globally
     window.startCheckout = startCheckout;
     
-    // Also make it available to parent window if in iframe
     try {
       if (window.top && window.top !== window && !window.top.startCheckout) {
         window.top.startCheckout = startCheckout;
@@ -376,22 +346,12 @@
       });
     }
 
-    // Initialize when DOM is ready
     if (document.readyState === 'loading') {
       document.addEventListener("DOMContentLoaded", wireButtons);
     } else {
       wireButtons();
     }
-
-    // Also wire buttons if they're added dynamically
-    const observer = new MutationObserver(() => {
-      wireButtons();
-    });
-    
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true
-    });
-
   })();
   </script>
+</body>
+</html>
