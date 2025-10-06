@@ -77,11 +77,11 @@ const storeToken = (token) => {
 async function setCookieAndGo(idToken) {
   console.log("=== SET COOKIE AND GO START ===");
   
-  // Store token first (primary auth method)
+  // Store token in GitHub Pages storage
   storeToken(idToken);
   console.log("Token stored in localStorage/sessionStorage");
   
-  // Still try to set backend cookie for same-origin requests, but don't depend on it
+  // Try to set backend cookie
   try {
     console.log("Calling sessionLogin endpoint:", SESSION_LOGIN_URL);
     const response = await fetch(SESSION_LOGIN_URL, {
@@ -95,25 +95,20 @@ async function setCookieAndGo(idToken) {
     });
 
     console.log("sessionLogin response status:", response.status);
-    console.log("sessionLogin response ok:", response.ok);
 
     if (!response.ok) {
       console.warn("Cookie set failed, using token-based auth");
     } else {
-      const data = await response.json();
-      console.log("Cookie set successfully, response:", data);
+      console.log("Cookie set successfully");
     }
   } catch (e) {
-    console.warn("Cookie request failed, using token-based auth:", e);
+    console.warn("Cookie request failed:", e);
   }
 
-  // Redirect to backend regardless of cookie success
+  // Redirect with token in URL so backend can store it
   console.log("About to redirect to:", BACKEND_ROOT);
-  console.log("Current location:", window.location.href);
-  
-  window.location.replace(BACKEND_ROOT);
-  
-  console.log("window.location.replace() called - should redirect now");
+  window.location.replace(BACKEND_ROOT + '?id_token=' + encodeURIComponent(idToken));
+  console.log("window.location.replace() called");
 }
 
 // Post-login handler
